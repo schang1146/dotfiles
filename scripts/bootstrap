@@ -6,8 +6,56 @@ source $DOTFILES_ROOT/scripts/logger
 
 link_file() {
   local src=$1 dst=$2
-  ln -s $src $dst
-  success "Linked $src to $dst"
+
+  local overwrite= skip=
+
+  if [ -f "$dst" -o -L "$dst" ]
+  then
+
+    local current_dst_symlink="$(readlink $dst)"
+
+    if [ "$current_dst_symlink" == "$src" ]
+    then
+
+      skip=true
+
+    else
+
+      user "File already exists: $dst ($(basename "$src")), select an option:\n\
+      [o]verwrite, [s]kip?"
+      read -n 1 action
+
+      case "$action" in
+        o)
+          overwrite=true
+          ;;
+        s)
+          skip=true
+          ;;
+        *)
+          ;;
+      esac
+
+    fi
+
+    if [ "$overwrite" = true ]
+    then
+      rm -rf "$dst"
+      success "Removed $dst"
+    fi
+
+    if [ "$skip" = true ]
+    then
+      success "Skipped $src"
+    fi
+
+  fi
+
+  if [ "$skip" != true ]
+  then
+    ln -s $src $dst
+    success "Linked $src to $dst"
+  fi
 }
 
 install_dotfiles() {
@@ -26,9 +74,9 @@ setup_gitconfig() {
     info "Setting up gitconfig..."
 
     user " - Enter your github name:"
-    read git_authorname
+    read -e git_authorname
     user " - Enter your github email:"
-    read git_authoremail
+    read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
   fi
