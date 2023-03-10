@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-source $DOTFILES_ROOT/scripts/logger
-
-for script in $(find "$DOTFILES_ROOT" -name "install.sh")
-do
-    echo $script
-done
+source "$DOTFILES_ROOT"/scripts/logger
 
 install() {
     which $1 &> /dev/null
@@ -13,22 +8,17 @@ install() {
     if [ $? -ne 0 ]
     then
         info "Installing: ${1}..."
-        sudo apt install -y "$1"
+        sudo sh -c "$2"
     else
         info "Already installed: ${1}"
     fi
 }
 
+sudo apt update
+sudo apt -y upgrade
 
-
-# install git
-
-# curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-# unzip awscliv2.zip
-# sudo ./aws/install
-# rm -r ./aws
-
-
-# install zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+for script_loc in $(find "$DOTFILES_ROOT" -name "install.sh")
+do
+    
+    install "$(basename $(dirname $script_loc))" "$script_loc"
+done
