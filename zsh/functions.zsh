@@ -13,7 +13,6 @@ function zsh_add_plugin() {
 		zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
 	else
 		git clone "https://github.com/$1.git" "$DOTFILES_ROOT/plugins/$PLUGIN_NAME"
-		
 	fi
 }
 
