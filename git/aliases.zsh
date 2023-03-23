@@ -1,4 +1,7 @@
-# git aliases are handled by oh-my-zsh's git plugin
+# Git
 
-# more info can be found here:
-# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
+alias ga='git add'
+alias gcm='git commit'
+alias gco='git checkout'
+alias gpl='git pull'
+alias gps='git push'
