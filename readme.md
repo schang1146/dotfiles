@@ -4,7 +4,12 @@ my attempt at a dotfiles repository. honestly, you probably shouldn't run any of
 
 ## installation
 
-tbd
+run
+
+```
+. ./scripts/install
+. ./scripts/bootstrap
+```
 
 ## thanks
 
