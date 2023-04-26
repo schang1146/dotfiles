@@ -8,8 +8,17 @@ run
 
 ```
 . ./scripts/install
+```
+
+to install all `install.sh` files
+
+run
+
+```
 . ./scripts/bootstrap
 ```
+
+to set up your gitconfig and symlink all the things
 
 ## thanks
 
