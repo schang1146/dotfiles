@@ -12,11 +12,11 @@ install() {
     fi
 }
 
+info "Attempting to update and upgrade packages..."
 sudo apt update
 sudo apt -y upgrade
 
 for script_loc in $(find "$DOTFILES_ROOT" -name "install.sh")
 do
-    
     install "$(basename $(dirname $script_loc))" "$script_loc"
 done
