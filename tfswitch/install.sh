@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # tfswitch
 # https://tfswitch.warrensbox.com/Install/
 
