@@ -20,5 +20,10 @@ sudo apt -y upgrade
 
 for script_loc in $(find "$DOTFILES_ROOT" -name "install.sh")
 do
-    install "$(basename $(dirname $script_loc))" "$script_loc"
+    read -r -p "Run ${script_loc}? (Y/n): " resp
+    if [ -z "$resp" ] || [ "$resp" = "y" ];
+    then
+        info "Running ${script_loc}..."
+        install "$(basename $(dirname $script_loc))" "$script_loc"
+    fi
 done
