@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+DOTFILES_ROOT=$(pwd -P)
+
 source "$DOTFILES_ROOT"/scripts/logger
 
 install() {
