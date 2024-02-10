@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 # aws
+if ! which unzip;
+then
+    sudo apt install unzip
+fi
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
