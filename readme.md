@@ -4,18 +4,24 @@ my attempt at a dotfiles repository. honestly, you probably shouldn't run any of
 
 ## installation
 
+clone repository
+
+```sh
+git clone https://github.com/schang1146/dotfiles
+```
+
 run
 
-```
-. ./scripts/install
+```sh
+./scripts/install
 ```
 
 to install all `install.sh` files
 
 run
 
-```
-. ./scripts/bootstrap
+```sh
+./scripts/bootstrap
 ```
 
 to set up your gitconfig and symlink all the things
