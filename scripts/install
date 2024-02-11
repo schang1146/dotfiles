@@ -21,8 +21,10 @@ do
         continue
     fi
 
-    read -r -p "Run ${script_loc}? (Y/n): " resp
-    if [ -z "$resp" ] || [ "$resp" = "y" ];
+    user "Run ${script_loc}?, select an option:\n\
+    [y]es, [n]o?"
+    read -n 1 action
+    if [ "$action" = "y" ];
     then
         info "Running ${script_loc}..."
         install "$(basename $(dirname $script_loc))" "$script_loc"
