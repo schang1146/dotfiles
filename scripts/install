@@ -8,7 +8,7 @@ install() {
     if ! which "$1";
     then
         info "Installing: ${1}..."
-        sudo sh -c "$2"
+        sh -c "$2"
     else
         info "Already installed: ${1}"
     fi
