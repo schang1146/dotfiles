@@ -1,7 +1,5 @@
 # Git
 
-alias ga='git add'
-alias gcm='git commit'
-alias gco='git checkout'
-alias gpl='git pull'
-alias gps='git push'
+for al in `git --list-cmds=alias`; do
+    alias g$al="git $al"
+done

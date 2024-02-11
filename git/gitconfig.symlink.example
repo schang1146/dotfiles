@@ -1,3 +1,11 @@
 [user]
         name = AUTHORNAME
         email = AUTHOREMAIL
+[alias]
+        a      =       add
+        cm     =       commit
+        co     =       checkout
+        pl     =       pull
+        ps     =       push
+        s      =       status -s
+        la     =       "!git config -l | grep alias | cut -c 7-"
