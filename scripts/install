@@ -5,13 +5,8 @@ DOTFILES_ROOT=$(pwd -P)
 source "$DOTFILES_ROOT"/scripts/logger
 
 install() {
-    if ! which "$1";
-    then
         info "Installing: ${1}..."
         sh -c "$2"
-    else
-        info "Already installed: ${1}"
-    fi
 }
 
 info "Attempting to update and upgrade packages..."
@@ -20,6 +15,12 @@ sudo apt -y upgrade
 
 for script_loc in $(find "$DOTFILES_ROOT" -name "install.sh")
 do
+    if output=$(which "$(basename $(dirname $script_loc))");
+    then
+        info "Already installed: $(basename $(dirname $script_loc))"
+        continue
+    fi
+
     read -r -p "Run ${script_loc}? (Y/n): " resp
     if [ -z "$resp" ] || [ "$resp" = "y" ];
     then
