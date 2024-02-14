@@ -13,21 +13,21 @@ info "Attempting to update and upgrade packages..."
 sudo apt update
 sudo apt -y upgrade
 
-for script_loc in $(find "$DOTFILES_ROOT" -name "install.sh")
+for script_loc in "$DOTFILES_ROOT"/**/install.sh
 do
-    if output=$(which "$(basename $(dirname $script_loc))");
+    if [ "$(command -v "$(basename "$(dirname "$script_loc")")")" != "" ];
     then
-        success "Already installed: $(basename $(dirname $script_loc))"
+        success "Already installed: $(basename "$(dirname "$script_loc")")"
         continue
     fi
 
     user "Run ${script_loc}?, select an option:\n\
     [y]es, [n]o?"
-    read -n 1 action
+    read -r -n 1 action
     if [ "$action" = "y" ];
     then
         info "Running ${script_loc}..."
-        install "$(basename $(dirname $script_loc))" "$script_loc"
+        install "$(basename "$(dirname "$script_loc")")" "$script_loc"
     fi
 done
 
