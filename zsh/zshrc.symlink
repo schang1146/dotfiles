@@ -8,5 +8,5 @@ do
 	source "$file"
 done
 
-# SC_Note: Needs to be run at the end of .zshrc to support syntax highlighting
+# Needs to be run at the end of .zshrc to support syntax highlighting
 source "$DOTFILES_ROOT/zsh/plugins.zsh"
