@@ -5,7 +5,8 @@
         a      =       add
         cm     =       commit
         co     =       checkout
+        la     =       "!git config -l | grep alias | cut -c 7-"
+        lg     =       log
         pl     =       pull
         ps     =       push
         s      =       status -s
-        la     =       "!git config -l | grep alias | cut -c 7-"
