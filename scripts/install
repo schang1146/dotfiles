@@ -17,7 +17,7 @@ for script_loc in $(find "$DOTFILES_ROOT" -name "install.sh")
 do
     if output=$(which "$(basename $(dirname $script_loc))");
     then
-        info "Already installed: $(basename $(dirname $script_loc))"
+        success "Already installed: $(basename $(dirname $script_loc))"
         continue
     fi
 
