@@ -13,18 +13,18 @@ git clone https://github.com/schang1146/dotfiles
 run
 
 ```sh
-./scripts/install
-```
-
-to install all `install.sh` files
-
-run
-
-```sh
 ./scripts/bootstrap
 ```
 
 to set up your gitconfig and symlink all the things
+
+run
+
+```sh
+./scripts/install
+```
+
+to install all `install.sh` files
 
 ## thanks
 
