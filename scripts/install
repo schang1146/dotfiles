@@ -30,3 +30,6 @@ do
         install "$(basename $(dirname $script_loc))" "$script_loc"
     fi
 done
+
+# Restart current shell
+exec $SHELL
