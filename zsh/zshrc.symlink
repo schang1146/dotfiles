@@ -1,15 +1,12 @@
-# shellcheck disable=2148
+#!/usr/bin/env zsh
 export DOTFILES_ROOT=$HOME/.dotfiles
 
-# shellcheck disable=SC1091
 source "$DOTFILES_ROOT/zsh/functions.zsh"
 
 find -H "$DOTFILES_ROOT" -name "*.zsh" ! -path "$DOTFILES_ROOT/plugins/*" ! -path "$DOTFILES_ROOT/zsh/plugins.zsh" -print0 | while IFS= read -r -d '' file
 do
-	# shellcheck disable=SC1090
 	source "$file"
 done
 
-# shellcheck disable=SC1091
 # SC_Note: Needs to be run at the end of .zshrc to support syntax highlighting
 source "$DOTFILES_ROOT/zsh/plugins.zsh"
