@@ -25,7 +25,7 @@ do
 
     user "Run ${script_loc}?, select an option:\n\
     [y]es, [n]o?"
-    read -r -n 1 action
+    read -r action
     if [ "$action" = "y" ];
     then
         info "Running ${script_loc}..."
