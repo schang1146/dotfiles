@@ -15,9 +15,11 @@ sudo apt -y upgrade
 
 for script_loc in "$DOTFILES_ROOT"/**/install.sh
 do
-    if [ "$(command -v "$(basename "$(dirname "$script_loc")")")" != "" ];
+    pkg="$(basename "$(dirname "$script_loc")")"
+
+    if [ "$(command -v "$pkg")" != "" ];
     then
-        success "Already installed: $(basename "$(dirname "$script_loc")")"
+        success "Already installed: $pkg"
         continue
     fi
 
@@ -27,7 +29,7 @@ do
     if [ "$action" = "y" ];
     then
         info "Running ${script_loc}..."
-        install "$(basename "$(dirname "$script_loc")")" "$script_loc"
+        install "$pkg" "$script_loc"
     fi
 done
 
