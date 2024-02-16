@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 
+DOTFILES_ROOT=$(pwd -P)
+source "$DOTFILES_ROOT"/utils/colors
+
 info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+  printf "  [$BLUE .. $NO_COLOR] %s\n" "$1"
 }
 
 user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+  printf "  [$ORANGE ?? $NO_COLOR ] %s\n" "$1"
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+  printf "  [$GREEN OK $NO_COLOR] %s\n" "$1"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31m!!\033[0m] $1\n"
-  echo ''
-  exit
+  printf "  [$RED !! $NO_COLOR] %s\n" "$1"
+  exit 1
 }
