@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT=$(pwd -P)
 
-source "$DOTFILES_ROOT"/scripts/logger
+source "$DOTFILES_ROOT"/utils/logger
 
 install() {
         info "Installing: ${1}..."

@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT=$(pwd -P)
 
-source $DOTFILES_ROOT/scripts/logger
+source $DOTFILES_ROOT/utils/logger
 
 link_file() {
   local src=$1 dst=$2
