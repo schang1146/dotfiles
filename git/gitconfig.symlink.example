@@ -3,8 +3,10 @@
         email = AUTHOREMAIL
 [alias]
         a      =       add
+        b      =       branch
         cm     =       commit
         co     =       checkout
+        f      =       fetch
         la     =       "!git config -l | grep alias | cut -c 7-"
         lg     =       log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
         pl     =       pull
