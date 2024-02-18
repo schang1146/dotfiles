@@ -23,8 +23,7 @@ do
         continue
     fi
 
-    user "Run ${script_loc}?, select an option:\n\
-    [y]es, [n]o?"
+    user "Run ${script_loc}? (Y/n)"
     read -r action
     if [ "$action" = "y" ];
     then
