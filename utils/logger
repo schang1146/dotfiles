@@ -1,7 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 DOTFILES_ROOT=$(pwd -P)
-source "$DOTFILES_ROOT"/utils/colors
+
+. "$DOTFILES_ROOT"/utils/colors
 
 info () {
   printf "  [$BLUE .. $NO_COLOR] %s\n" "$1"
