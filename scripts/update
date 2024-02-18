@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+DOTFILES_ROOT=$(pwd -P)
+
+. "$DOTFILES_ROOT"/utils/logger
+
+# update git symlink
+user "Update git symlink? (Y/n)"
+read -r action
+if [ "$action" = "y" ];
+then
+    # remove everything after the [user] block
+    # from the gitconfig that's used as the symlink
+    sed -i '/.*email.*/,$ {/.*email.*/!d}' ./git/gitconfig.symlink
+    # insert everything after the [user] block
+    # from the gitconfig tracked in remote
+    sed '1,/\(.*email.*\)/d' ./git/gitconfig.symlink.example >> .//git/gitconfig.symlink
+fi
