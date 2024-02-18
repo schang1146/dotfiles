@@ -5,18 +5,18 @@ DOTFILES_ROOT=$(pwd -P)
 . "$DOTFILES_ROOT"/utils/colors
 
 info () {
-  printf "  [$BLUE .. $NO_COLOR] %s\n" "$1"
+  printf "[$BLUE .. $NO_COLOR] %s\n" "$1"
 }
 
 user () {
-  printf "  [$ORANGE ?? $NO_COLOR ] %s\n" "$1"
+  printf "[$ORANGE ?? $NO_COLOR] %s\n" "$1"
 }
 
 success () {
-  printf "  [$GREEN OK $NO_COLOR] %s\n" "$1"
+  printf "[$GREEN OK $NO_COLOR] %s\n" "$1"
 }
 
 fail () {
-  printf "  [$RED !! $NO_COLOR] %s\n" "$1"
+  printf "[$RED !! $NO_COLOR] %s\n" "$1"
   exit 1
 }
