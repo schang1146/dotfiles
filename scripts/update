@@ -38,3 +38,6 @@ then
         pyenv update
     fi
 fi
+
+# Restart current shell
+exec $SHELL
