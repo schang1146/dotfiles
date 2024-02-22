@@ -16,3 +16,19 @@ then
     # from the gitconfig tracked in remote
     sed '1,/\(.*email.*\)/d' ./git/gitconfig.symlink.example >> .//git/gitconfig.symlink
 fi
+
+# update nvm version
+user "Update nvm version? (Y/n)"
+read -r action
+if [ "$action" = "y" ];
+then
+    "$DOTFILES_ROOT"/nvm/install.sh
+fi
+
+# update pyenv version
+user "Update pyenv version? (Y/n)"
+read -r action
+if [ "$action" = "y" ];
+then
+    pyenv update
+fi
