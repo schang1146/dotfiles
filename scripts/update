@@ -18,11 +18,14 @@ then
 fi
 
 # update nvm version
-user "Update nvm version? (Y/n)"
-read -r action
-if [ "$action" = "y" ];
+if [ -n "$NVM_DIR" ];
 then
-    "$DOTFILES_ROOT"/nvm/install.sh
+    user "Update nvm version? (Y/n)"
+    read -r action
+    if [ "$action" = "y" ];
+    then
+        "$DOTFILES_ROOT"/nvm/install.sh
+    fi
 fi
 
 # update pyenv version
