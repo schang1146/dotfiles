@@ -26,9 +26,12 @@ then
 fi
 
 # update pyenv version
-user "Update pyenv version? (Y/n)"
-read -r action
-if [ "$action" = "y" ];
+if [ "$(command -v pyenv)" != "" ];
 then
-    pyenv update
+    user "Update pyenv version? (Y/n)"
+    read -r action
+    if [ "$action" = "y" ];
+    then
+        pyenv update
+    fi
 fi
